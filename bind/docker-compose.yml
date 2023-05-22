@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  bind9:
+    image: joao.oliveira/bind9
+    build: .
+    environment:
+      - BIND9_USER=root
+      - TZ=Europe/Lisbon
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./config:/etc/bind
+      - ./cache:/var/cache/bind
+      - ./records:/var/lib/bind
+    command: /bin/bash -c "/usr/sbin/named -f -g"
+    restart: always
