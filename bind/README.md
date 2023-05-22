@@ -1,7 +1,7 @@
 # BIND9 dockerized service
 
 Here you can find the configuration for my home DNS server.
-It serves both as a DNS cache and a LAN DNS server. 
+It serves both as a DNS cache and a LAN name resolver. 
 
 The main purpose of this service is to answer to name queries between hosts running in my LAN. At the time of writing this, all DNS requests from hosts outside my LAN are set to be ignored.
 
