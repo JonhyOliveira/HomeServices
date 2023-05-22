@@ -1,0 +1,16 @@
+[Unit]
+Description=Bind9 DNS server containerized
+Requires=docker.service
+After=docker.service
+StartLimitIntervalSec=60
+
+[Service]
+WorkingDirectory=/home/pi/services/bind
+ExecStart=/bin/docker-compose up
+ExecStop=/bin/docker-compose down
+TimeoutStartSec=0
+Restart=on-failure
+StartLimitBurst=3
+
+[Install]
+WantedBy=multi-user.target
